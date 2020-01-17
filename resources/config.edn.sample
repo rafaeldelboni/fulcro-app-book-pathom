@@ -1,0 +1,4 @@
+{:webserver-port       3001
+ :webserver-host       "localhost"
+ :environment          "dev"
+ :cors-allowed-origins "http://localhost:3000"}
