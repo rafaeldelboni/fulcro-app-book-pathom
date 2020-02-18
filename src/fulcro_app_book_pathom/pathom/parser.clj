@@ -10,12 +10,12 @@
 (def resolvers [people.res/resolvers people.mut/mutations])
 
 (def pathom-parser
-  (p/parser {::p/env     {::p/reader               [p/map-reader
-                                                    pc/reader2
+  (p/parser {::p/env     {::p/reader               [pc/reader2
                                                     pc/ident-reader
+                                                    pc/open-ident-reader
                                                     pc/index-reader
                                                     p/env-placeholder-reader
-                                                    ]
+                                                    p/map-reader]
                           ;::pc/resolver-dispatch   pc/resolver-dispatch-embedded
                           ;::pc/mutate-dispatch     pc/mutation-dispatch-embedded
                           ::p/placeholder-prefixes #{">"}

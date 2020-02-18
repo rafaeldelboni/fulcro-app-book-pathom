@@ -41,4 +41,17 @@
   {::pc/output [{:enemies [:list/id]}]}
   {:enemies {:list/id :enemies}})
 
-(def resolvers [person-resolver list-resolver friends-resolver enemies-resolver])
+
+; Given a :input/id and :input/name return :input/result
+;(fulcro-app-book-pathom.pathom.parser/pathom-parser
+  ;{}
+  ;'[{([:input/id 123] {:pathom/context {:input/name 123}}) [:input/result]}])
+
+(pc/defresolver test-resolver
+  [env {:input/keys [id name]}]
+  {::pc/input  #{:input/id
+                 :input/name}
+   ::pc/output [:input/result]}
+  {:input/result (str id "-" name)})
+
+(def resolvers [person-resolver list-resolver friends-resolver enemies-resolver test-resolver])
